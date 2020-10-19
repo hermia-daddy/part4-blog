@@ -7,21 +7,22 @@ blogRouter.get("/", (request, response) => {
   });
 });
 
-blogRouter.post("/", (request, response, next) => {
+blogRouter.post("/", async (request, response, next) => {
   const body = request.body;
   const blog = new Blog({
     title: body.title,
     author: body.author,
     url: body.url,
-    likes: body.likes,
+    likes: body.likes || 0,
   });
 
-  blog
-    .save()
-    .then((savedBlog) => {
-      response.json(savedBlog);
-    })
-    .catch((error) => next(error));
+  if (!blog.title || !blog.url) {
+    response.status(400).end()
+  }else{
+    const savedBlog = await blog.save()
+    response.json(savedBlog)
+  }
+
 });
 
 module.exports = blogRouter

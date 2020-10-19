@@ -41,14 +41,12 @@ const mostBlogs = (blogs) => {
 
 const mostLike = (blogs) => {
   const authorBlogs = _.groupBy(blogs, "author");
-  console.log(authorBlogs);
   const authorLikes = _.mapValues(authorBlogs, (value, key) => {
     const totalLikes = value.reduce((pre, cur) => {
       return pre + cur.likes;
     }, 0);
     return totalLikes;
   });
-  console.log(authorLikes);
   let mostLikeAuthor = { author: "", likes: 0 };
   _.mapKeys(authorLikes, (value, key) => {
     if (mostLikeAuthor.likes < value) {
