@@ -1,0 +1,33 @@
+{
+  "name": "part4-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest": "^26.5.3",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.9",
+    "nodemon": "^2.0.5"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2"
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hermia-daddy/part4-blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hermia-daddy/part4-blog/issues"
+  },
+  "homepage": "https://github.com/hermia-daddy/part4-blog#readme"
+}
