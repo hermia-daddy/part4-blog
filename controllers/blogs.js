@@ -38,7 +38,7 @@ blogRouter.post("/", async (request, response) => {
 blogRouter.delete("/:id", async (request, response) => {
   const decodedToken = jwt.verify(request.token, process.env.SECRET);
   if (!request.token || !decodedToken) {
-    response.status(401).end({ error: "invalid token" });
+    response.status(401).end({ error: "Unauthorized" });
   }
   const blog = await Blog.findById(request.params.id);
   if (blog) {

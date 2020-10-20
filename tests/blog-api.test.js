@@ -32,6 +32,18 @@ test("add a blog with token", async () => {
     .expect(200);
 });
 
+test("add a blog with non token", async () => {
+  await api
+    .post("/api/blogs")
+    .send({
+      title: "test add blog with non token",
+      url: "www.baidu.com",
+      author: "zfc",
+      likes: 50,
+    })
+    .expect(401);
+});
+
 afterAll(() => {
   mongoose.connection.close();
 });
